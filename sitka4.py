@@ -14,19 +14,16 @@ highs= []
 dates= []
 lows= []
 
-some_date= datetime.strptime('2018-07-01', '%Y-%m-%d')
-print(type(some_date))
-
 for row in csv_file:
     try:
-        high= int(row[4])
-        low= int(row[5])
-        some_date= datetime.strptime('2018-07-01', '%Y-%m-%d')
+        some_date= datetime.strptime(row[2], '%Y-%m-%d')
+        high= int(row[5])
+        low= int(row[6])
     except ValueError:
         print(f"Missing data for {some_date}")
     else:
-        highs.append(int(row[4]))
-        lows.append(int(row[5]))
+        highs.append(int(row[5]))
+        lows.append(int(row[6]))
         dates.append(some_date)
 
 print(highs[:5])
